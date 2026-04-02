@@ -1,27 +1,33 @@
 const images = [
-    "https://picsum.photos/600/300?1",
-    "https://picsum.photos/600/300?2",
-    "https://picsum.photos/600/300?3",
-    "https://picsum.photos/600/300?4",
-    "https://picsum.photos/600/300?5"
+    "image1.jpg",
+    "image2.jpg",
+    "image3.jpg",
+    "image4.jpg",
+    "image5.jpg"
 ];
 
 let index = 0;
 
+// Получаем элементы
 const img = document.getElementById("slider-image");
 const counter = document.getElementById("counter");
+const nextBtn = document.getElementById("next");
+const prevBtn = document.getElementById("prev");
 
+// Обновление слайдера
 function updateSlider() {
     img.src = images[index];
-    counter.textContent = `Изображение ${index + 1} из ${images.length}`;
+    counter.textContent = "Изображение " + (index + 1) + " из " + images.length;
 }
 
-document.getElementById("next").addEventListener("click", () => {
+// Кнопка вперед
+nextBtn.addEventListener("click", () => {
     index = (index + 1) % images.length;
     updateSlider();
 });
 
-document.getElementById("prev").addEventListener("click", () => {
+// Кнопка назад
+prevBtn.addEventListener("click", () => {
     index = (index - 1 + images.length) % images.length;
     updateSlider();
 });
